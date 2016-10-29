@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <title>WebGL Globe</title>
+    <title>Earthquake Vis</title>
     <meta charset="utf-8">
     <style type="text/css">
       html {
@@ -58,7 +58,7 @@
       #title {
         position: absolute;
         top: 20px;
-        width: 270px;
+        width: 400px;
         left: 20px;
         background-color: rgba(0,0,0,0.2);
         border-radius: 3px;
@@ -106,17 +106,17 @@
   <div id="container"></div>
 
   <div id="info">
-    <strong><a href="http://www.chromeexperiments.com/globe">WebGL Globe</a></strong> <span class="bull">&bull;</span> Created by the Google Data Arts Team <span class="bull">&bull;</span> Data acquired from <a href="http://sedac.ciesin.columbia.edu/gpw/">SEDAC</a>
+    <strong><a href="http://www.chromeexperiments.com/globe">Data Visualization</a></strong> <span class="bull">&bull;</span> Created by Pooja Welling<span class="bull">&bull;</span> Data acquired from <a href="https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1" target="_blank">NOAA</a>
   </div>
 
-  <div id="currentInfo">
+<!--  <div id="currentInfo">
     <span id="year1990" class="year">1990</span>
     <span id="year1995" class="year">1995</span>
     <span id="year2000" class="year">2000</span>
   </div>
-
+-->
   <div id="title">
-    World Population
+    Earthquakes: 2150 B.C. to Present
   </div>
 
   <a id="ce" href="http://www.chromeexperiments.com/globe">
@@ -143,27 +143,27 @@
       var settime = function(globe, t) {
         return function() {
           new TWEEN.Tween(globe).to({time: t/years.length},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
-          var y = document.getElementById('year'+years[t]);
-          if (y.getAttribute('class') === 'year active') {
+//          var y = document.getElementById('year'+years[t]);
+//          if (y.getAttribute('class') === 'year active') {
             return;
-          }
-          var yy = document.getElementsByClassName('year');
-          for(i=0; i<yy.length; i++) {
-            yy[i].setAttribute('class','year');
-          }
-          y.setAttribute('class', 'year active');
-        };
+//          }
+//          var yy = document.getElementsByClassName('year');
+//          for(i=0; i<yy.length; i++) {
+//            yy[i].setAttribute('class','year');
+//          }
+//          y.setAttribute('class', 'year active');
+//        };
       };
-      
-      for(var i = 0; i<years.length; i++) {
-        var y = document.getElementById('year'+years[i]);
-        y.addEventListener('mouseover', settime(globe,i), false);
+
+//      for(var i = 0; i<years.length; i++) {
+//        var y = document.getElementById('year'+years[i]);
+//        y.addEventListener('mouseover', settime(globe,i), false);
       }
-      
+
       var xhr;
       TWEEN.start();
-      
-      
+
+
       xhr = new XMLHttpRequest();
       xhr.open('GET', '/globe/earthquake_formatted.json', true);
       xhr.onreadystatechange = function(e) {
