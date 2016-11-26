@@ -1,3 +1,4 @@
+Fall 2016
 Check this visualization out at http://www.terratomic.com:8000/globe
 
 This code provides a visualization of earthquake data - location and magnitude. The data set I used contains information on earthquakes from 2150 B.C. to the present. Every earthquake in this set meets at least one of the following criteria: damage costing at least $1 million to repair, fatality count of at least 10, magnitude of at least 7.5, Mercalli Intensity of at least X, or the earthquake produced a tsunami. The data was then processed for the WebGL globe using Excel. I also formatted the data using a script written in Java to match the format specified in the globe's documentation. Finally, I deployed using AWS and an nginx based server.
